@@ -1,4 +1,4 @@
-RELEASE=0.0.6
+RELEASE=0.1.0
 
 .PHONY: help clean
 
