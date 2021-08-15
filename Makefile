@@ -1,5 +1,3 @@
-RELEASE=0.1.2
-
 .PHONY: help clean
 
 help:
@@ -7,9 +5,9 @@ help:
 
 deps: ## download the v8lib repo and extract just the headers
 	rm -fr deps
-	curl -L -o v8lib-$(RELEASE).tar.gz https://github.com/just-js/libv8/archive/$(RELEASE).tar.gz
-	tar -zxvf v8lib-$(RELEASE).tar.gz
-	tar -zxvf libv8-${RELEASE}/v8.tar.gz
+	curl -L -o v8lib-current.tar.gz https://github.com/just-js/libv8/archive/current.tar.gz
+	tar -zxvf v8lib-current.tar.gz
+	tar -zxvf libv8-current/v8.tar.gz
 	rm deps/v8/libv8_monolith.a
 
 dist: deps ## make distribution tarball
@@ -17,8 +15,8 @@ dist: deps ## make distribution tarball
 	tar -cv deps | gzip --best > v8.tar.gz
 
 clean: ## clean
-	rm -fr libv8-${RELEASE}
-	rm -f v8lib-${RELEASE}.tar.gz
+	rm -fr libv8-current
+	rm -f v8lib-current.tar.gz
 	rm -fr deps
 
 all: ## make all the things
